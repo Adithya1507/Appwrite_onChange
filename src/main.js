@@ -10,6 +10,7 @@ client.setProject('65aa01cb9e240bfad45d'); // Set your Appwrite project ID
 export async function onDocumentUpdate(event) {
   try {
     console.log("Function triggered: Document updated",event);
+    return "document changed";
     // const collectionId = event.$collection;
     // const documentId = event.$id;
 
@@ -32,7 +33,8 @@ export async function onDocumentUpdate(event) {
     //   }
     // }
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error123:', error);
+    return error; 
   }
 }
 
