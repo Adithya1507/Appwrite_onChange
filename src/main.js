@@ -12,10 +12,10 @@ async function handleDocumentChange(payload) {
         // Get the document ID and collection ID from the payload
         const documentId = payload.$id;
         const collectionId = payload.$collection;
-
+        
         // Retrieve the details of the document
         const document = await client.database.getDocument(collectionId, documentId);
-
+        console.log('Retrieved document:', document);
         // Respond with the details of the document
         return document;
     } catch (error) {
