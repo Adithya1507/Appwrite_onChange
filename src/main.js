@@ -12,17 +12,22 @@ async function handleDocumentChange(payload) {
         // Get the document ID and collection ID from the payload
         const documentId = payload.$id;
         const collectionId = payload.$collection;
-        
-        // Retrieve the details of the document
-        const document = await client.database.getDocument(collectionId, documentId);
-        console.log('Retrieved document:', document);
-        // Respond with the details of the document
-        return document;
+
+        // Update the document with the new field value
+        const updatePayload = {
+            name: 'NameforTest' // Set the new value for the 'name' field
+            // Add more fields to update if needed
+        };
+
+        await client.database.updateDocument(collectionId, documentId, updatePayload);
+
+        console.log(`Document ${documentId} updated successfully with field 'name' set to 'NameforTest'.`);
     } catch (error) {
         console.error('Error handling document change:', error);
         throw error;
     }
 }
 
-// Register the function to listen for changes in the "Collection1" collection
-client.functions.create('documentChange', ['document.create', 'document.update'], handleDocumentChange, 'Collection1');
+// Register the function to listen for changes in the specified collection (e.g., "Collection1")
+client.functions.create('handleDocumentChange', ['document.create', 'document.update'], handleDocumentChange, 'Collection1');
+
