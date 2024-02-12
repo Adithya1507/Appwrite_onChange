@@ -1,4 +1,4 @@
-import * as functions from '@appwrite/functions';
+//import * as functions from '@appwrite/functions';
 import * as sdk from 'node-appwrite';
 
 // Initialize Appwrite SDK
@@ -39,4 +39,6 @@ export async function onDocumentUpdate(event) {
 }
 
 // Subscribe to the event
-functions.event.subscribe('database.*.documents.update', onDocumentUpdate);
+//functions.event.subscribe('database.*.documents.update', onDocumentUpdate);
+functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
+
