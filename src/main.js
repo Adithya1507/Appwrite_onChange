@@ -11,6 +11,7 @@ client.setKey('00e06217789ec3ac74a1a426ac2d10858ae676ad0c223ad43177ca9f7336d16ec
 exports.onDocumentUpdate = functions.event.subscribe('database.*.documents.update', async (event) => {
   try {
     console.log("iiiiiiiiiiiii21434354");
+    context.log("ypoooooooo");
     const collectionId = event.$collection;
     const documentId = event.$id;
 
