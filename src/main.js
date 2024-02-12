@@ -43,7 +43,7 @@
 // //functions.event.subscribe('database.*.documents.update', onDocumentUpdate);
 // //functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
 // export default async ({ req, res, log, error }) => {
-  export async function onDocumentUpdate(event){
+  export default async ({ req, res, log, error }) => {
   // Why not try the Appwrite SDK?
   //
   // const client = new Client()
@@ -52,7 +52,7 @@
   //    .setKey(process.env.APPWRITE_API_KEY);
 
   // You can log messages to the console
-  log('Hello, Logs123!',event);
+  log('Hello, Logs123!',req);
 
   // If something goes wrong, log an error
   error('Hello, Errors!');
