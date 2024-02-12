@@ -41,5 +41,5 @@ export async function onDocumentUpdate(event) {
 
 // Subscribe to the event
 //functions.event.subscribe('database.*.documents.update', onDocumentUpdate);
-functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
+//functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
 
