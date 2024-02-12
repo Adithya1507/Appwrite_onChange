@@ -1,4 +1,4 @@
-//import * as functions from '@appwrite/functions';
+import * as functions from '@appwrite/functions';
 import * as sdk from 'node-appwrite';
 
 // Initialize Appwrite SDK
