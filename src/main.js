@@ -1,5 +1,5 @@
-const sdk = require('node-appwrite');
-
+//const sdk = require('node-appwrite');
+import * as sdk from 'node-appwrite';
 // Initialize the Appwrite SDK
 const client = new sdk.Client();
 client.setEndpoint("https://cloud.appwrite.io/v1"); // Replace 'YOUR_ENDPOINT' with your Appwrite endpoint
