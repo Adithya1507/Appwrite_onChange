@@ -16,7 +16,7 @@ export async function onDocumentUpdate(event) {
     // Check if the event is for the specified collection
     if (collectionId === '65c9a8d2705210df628f') { // Replace with your collection ID
       // Access the updated document data
-      const updatedDocument = await client.database.getDocument(collectionId, documentId);
+      const updatedDocument = await client.databases.getDocument(collectionId, documentId);
 
       // Check if "name" field exists
       if (updatedDocument.hasOwnProperty('name')) {
@@ -24,7 +24,7 @@ export async function onDocumentUpdate(event) {
         updatedDocument.name = 'adiupdated';
 
         // Save the updated document
-        await client.database.updateDocument(collectionId, documentId, updatedDocument);
+        await client.databases.updateDocument(collectionId, documentId, updatedDocument);
 
         console.log(`Document "${documentId}" in collection "${collectionId}" updated to "adiupdated".`);
       } else {
