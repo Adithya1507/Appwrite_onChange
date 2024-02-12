@@ -52,7 +52,7 @@
   //    .setKey(process.env.APPWRITE_API_KEY);
 
   // You can log messages to the console
-  log('Hello, Logs123!',req);
+  log('Hello, Logs123! ' + JSON.stringify(req));
 
   // If something goes wrong, log an error
   error('Hello, Errors!');
