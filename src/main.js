@@ -52,10 +52,10 @@ export default async ({ req, res, log, error }) => {
   // You can log messages to the console
   //log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
   const collectionModified= JSON.stringify(req.body.$collectionId)
-  log("collectionModified:"+ collectionModified)
-   if(collectionModified=="65c9a8d2705210df628f"){
+  //log("collectionModified:"+ collectionModified)
+   if(collectionModified === "65c9a8d2705210df628f"){
       const documentModified=JSON.stringify(req.body.$id)
-      log("document modified"+JSON.stringify(documentModified))
+      log("document modified"+ documentModified)
       if(parseInt(req.body.id) >5 ){
 
         try {
