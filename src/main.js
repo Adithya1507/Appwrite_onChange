@@ -73,10 +73,10 @@ export default async ({ req, res, log, error }) => {
           log("documentis"+JSON.stringify(document));
           // Update the 'name' field to 'Modified'
           //const data={name:"modified",id:"2"}
-          document.name = 'Modified';
-
+          //document.name = 'Modified';  
+          const data={name:"modified"}
           // Save the updated document
-          await databases.updateDocument(databaseId,collectionModified, documentModified, document);
+          await databases.updateDocument(databaseId,collectionModified, documentModified, data);
 
           
         } catch (error1) {
@@ -97,5 +97,5 @@ export default async ({ req, res, log, error }) => {
 };
 
 
-
+//let a={"name":"adi","id":"7","$id":"65c9ec18df6bab778571","$createdAt":"2024-02-12T09:59:52.915+00:00","$updatedAt":"2024-02-13T07:22:42.230+00:00","$permissions":[],"$databaseId":"65c9a8c8d176e568ab13","$collectionId":"65c9a8d2705210df628f"}
 //const a={"bodyRaw":"{\"name\":\"adi\",\"id\":\"5\",\"$id\":\"65c9ec18df6bab778571\",\"$createdAt\":\"2024-02-12T09:59:52.915+00:00\",\"$updatedAt\":\"2024-02-12T13:36:49.904+00:00\",\"$permissions\":[],\"$databaseId\":\"65c9a8c8d176e568ab13\",\"$collectionId\":\"65c9a8d2705210df628f\"}","body":{"name":"adi","id":"5","$id":"65c9ec18df6bab778571","$createdAt":"2024-02-12T09:59:52.915+00:00","$updatedAt":"2024-02-12T13:36:49.904+00:00","$permissions":[],"$databaseId":"65c9a8c8d176e568ab13","$collectionId":"65c9a8d2705210df628f"},"headers":{"host":"65ca1ef26d042:3000","user-agent":"Appwrite/1.4.13","content-type":"application/json","x-appwrite-trigger":"event","x-appwrite-event":"databases.65c9a8c8d176e568ab13.collections.65c9a8d2705210df628f.documents.65c9ec18df6bab778571.update","x-appwrite-user-id":"65aa018c5f5246e23ffb","connection":"keep-alive","content-length":"236"},"method":"POST","host":"65ca1ef26d042","scheme":"http","query":{},"queryString":"","port":3000,"url":"http://65ca1ef26d042:3000/","path":"/"}
