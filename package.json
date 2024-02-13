@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "appwrite": "^13.0.1",
+    "blake2": "^5.0.0",
     "node-appwrite": "^9.0.0"
   },
   "devDependencies": {
