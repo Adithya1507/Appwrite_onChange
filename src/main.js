@@ -81,13 +81,13 @@ export default async ({ req, res, log, error }) => {
 const functions = new Functions(client)
 const execution = await functions.createExecution(
   '65c30374d86c4e6c4991',
-  JSON.stringify({ 'foo': 'bar' }),
+  { 'collectionId': collectionModified },
   false,
   '/',
   'GET',
   { 'X-Custom-Header': '123' }
 )
-log("execution"+execution)
+log("execution"+JSON.stringify(execution));
 //-------
 
         } catch (error1) {
@@ -108,3 +108,4 @@ log("execution"+execution)
 };
 
 
+//let a={"bodyRaw":"{\"foo\":\"bar\"}","body":"{\"foo\":\"bar\"}","headers":{"host":"cloud.appwrite.io","x-appwrite-trigger":"http","x-appwrite-continent-eu":"false","content-type":"application/x-www-form-urlencoded","connection":"keep-alive","content-length":"13"},"method":"POST","host":"cloud.appwrite.io","scheme":"http","query":{},"queryString":"","port":80,"url":"http://cloud.appwrite.io/","path":"/"}
