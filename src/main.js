@@ -64,13 +64,8 @@
     return res.send('Hello, World!');
   }
 
-  // `res.json()` is a handy helper for sending JSON
-  // return res.json({
-  //   motto: 'Build like a team of hundreds_',
-  //   learn: 'https://appwrite.io/docs',
-  //   connect: 'https://appwrite.io/discord',
-  //   getInspired: 'https://builtwith.appwrite.io',
-  // });
+  //`res.json()` is a handy helper for sending JSON
+  return res.send("triggered")
 };
 
 
