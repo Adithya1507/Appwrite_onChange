@@ -1,5 +1,6 @@
 import { Databases,Client,Functions } from 'node-appwrite';
-import blake2 from 'blake2';
+//import blake2 from 'blake2';
+import { blake2bHex } from 'blake2';
 export default async ({ req, res, log, error }) => {
   const collectionModified= req.body.$collectionId
   const documentModified=req.body.$id
