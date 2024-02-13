@@ -66,8 +66,7 @@ export default async ({ req, res, log, error }) => {
           client.setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
         
           const databases = new Databases(client);
-          log("inside12---"+databases)
-          // Get the document by its id
+          
       
           const document = await databases.getDocument(collectionModified,documentModified);
           log("documentis"+document)
@@ -80,7 +79,7 @@ export default async ({ req, res, log, error }) => {
           
         } catch (error1) {
           
-          error('Error updating document:', error1);
+          error('Error updating document:'+ error1);
         }
        
 
