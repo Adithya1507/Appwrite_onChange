@@ -59,10 +59,12 @@ export default async ({ req, res, log, error }) => {
    {
     
       if(parseInt(req.body.id) >5 ){
-         //log("inside1")
+         
         try {
           const client = new Client();
-          client.setEndpoint('https://cloud.appwrite.io/v1').setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
+          client.setEndpoint('https://cloud.appwrite.io/v1')
+          client.setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
+          log("inside1"+process.env.APPWRITE_FUNCTION_PROJECT_ID)
           const databases = new Databases(client);
 
           // Get the document by its id
