@@ -54,6 +54,7 @@ export default async ({ req, res, log, error }) => {
   const collectionModified= JSON.stringify(req.body.$collectionId)
    if(collectionModified=="65c9a8d2705210df628f"){
       const documentModified=JSON.stringify(req.body.$id)
+      log("document modified"+JSON.stringify(documentModified))
       if(parseInt(req.body.id) >5 ){
 
         try {
@@ -82,7 +83,7 @@ export default async ({ req, res, log, error }) => {
       }
     }
   
-
+  
  
 
   
