@@ -57,7 +57,7 @@ export default async ({ req, res, log, error }) => {
   //log("collectionModified:"+ collectionModified)
    if(collectionModified === "65c9a8d2705210df628f")
    {
-     log("inside")
+     log("inside1")
       if(parseInt(req.body.id) >5 ){
 
         try {
@@ -76,9 +76,9 @@ export default async ({ req, res, log, error }) => {
           await databases.updateDocument(collectionModified, documentModified, document);
 
           
-        } catch (error) {
-          // Log any errors that occur during the update process
-          error('Error updating document:', error);
+        } catch (error1) {
+          
+          error('Error updating document:', error1);
         }
        
 
