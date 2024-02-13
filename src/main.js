@@ -44,9 +44,9 @@
 // //functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
 // export default async ({ req, res, log, error }) => {
 
-import { Databases,Client } from 'node-appwrite';
-import pkg from 'node-appwrite'; // Import the entire package
-const functions = pkg.functions;
+import { Databases,Client,Functions } from 'node-appwrite';
+// import pkg from 'node-appwrite'; // Import the entire package
+// const functions = pkg.functions;
 export default async ({ req, res, log, error }) => {
  
 
@@ -69,7 +69,7 @@ export default async ({ req, res, log, error }) => {
           
       
           const document = await databases.getDocument(databaseId,collectionModified,documentModified)
-          log("documentis"+JSON.stringify(document));
+          //log("documentis"+JSON.stringify(document));
           //if(document.name != "modified"){
         
           //const data={name:"modified"}
@@ -78,11 +78,16 @@ export default async ({ req, res, log, error }) => {
          // }
           
 //----------
-        await functions.call('Starter function',
-                   {
-                      collectionId: collectionModified
-                    });
-
+const functions = new Functions(client)
+const execution = await functions.createExecution(
+  '65c30374d86c4e6c4991',
+  JSON.stringify({ 'foo': 'bar' }),
+  false,
+  '/',
+  'GET',
+  { 'X-Custom-Header': '123' }
+)
+log("execution"+execution)
 //-------
 
         } catch (error1) {
