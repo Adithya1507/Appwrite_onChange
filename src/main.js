@@ -51,7 +51,7 @@ export default async ({ req, res, log, error }) => {
 
   // You can log messages to the console
   //log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
-  const collectionModified= JSON.stringify(req.body.$collectionId)
+  const collectionModified= req.body.$collectionId
   const documentModified=JSON.stringify(req.body.$id)
   //log("document modified"+ documentModified)
   //log("collectionModified:"+ collectionModified)
