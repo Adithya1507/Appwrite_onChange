@@ -53,7 +53,7 @@ export default async ({ req, res, log, error }) => {
   //log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
   const collectionModified= JSON.stringify(req.body.$collectionId)
   const documentModified=JSON.stringify(req.body.$id)
-  log("document modified"+ documentModified)
+  //log("document modified"+ documentModified)
   //log("collectionModified:"+ collectionModified)
    if(collectionModified === "65c9a8d2705210df628f")
    {
