@@ -69,9 +69,10 @@ export default async ({ req, res, log, error }) => {
           const databases = new Databases(client);
           
       
-          const document = await databases.getDocument(databaseId,collectionModified,documentModified);
-          log("documentis"+document)
+          const document = await databases.getDocument(databaseId,collectionModified,documentModified)
+          log("documentis"+JSON.stringify(document));
           // Update the 'name' field to 'Modified'
+          //const data={name:"modified",id:"2"}
           document.name = 'Modified';
 
           // Save the updated document
