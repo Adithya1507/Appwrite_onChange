@@ -43,29 +43,50 @@
 // //functions.event.subscribe('database.*.documents.update', onDocumentUpdate);
 // //functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
 // export default async ({ req, res, log, error }) => {
-  export default async ({ req, res, log, error }) => {
-  // Why not try the Appwrite SDK?
-  //
-  // const client = new Client()
-  //    .setEndpoint('https://cloud.appwrite.io/v1')
-  //    .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-  //    .setKey(process.env.APPWRITE_API_KEY);
+
+import { Databases,Client } from 'node-appwrite';
+
+export default async ({ req, res, log, error }) => {
+ 
 
   // You can log messages to the console
   log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
+  const collectionModified= JSON.stringify(req.body.$collectionId)
+  if(collectionModified=="65c9a8d2705210df628f"){
+      const documentModified=JSON.stringify(req.body.$collectionId.$id)
+      if(JSON.stringify(req.body.id).toInt()>5){
 
-  // If something goes wrong, log an error
-  error('Hello, Errors!');
+        try {
+          const client = new Client();
+          client.setEndpoint('https://cloud.appwrite.io/v1').setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
+          const databases = new Databases(client);
 
-  // The `req` object contains the request data
-  if (req.method === 'GET') {
-    // Send a response with the res object helpers
-    // `res.send()` dispatches a string back to the client
-    return res.send('Hello, World!');
-  }
+          // Get the document by its id
+      
+          const document = await databases.getDocument(collectionModified,documentModified);
 
-  //`res.json()` is a handy helper for sending JSON
-  return context.res.send("triggered")
+          // Update the 'name' field to 'Modified'
+          document.name = 'Modified';
+
+          // Save the updated document
+          await databases.updateDocument(collectionModified, documentModified, document);
+
+          
+      } catch (error) {
+          // Log any errors that occur during the update process
+          error('Error updating document:', error);
+      }
+       
+
+
+      }
+    }
+  
+
+ 
+
+  
+  return res.send("triggered")
 };
 
 
