@@ -50,11 +50,11 @@ export default async ({ req, res, log, error }) => {
  
 
   // You can log messages to the console
-  log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
+  //log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
   const collectionModified= JSON.stringify(req.body.$collectionId)
-  if(collectionModified=="65c9a8d2705210df628f"){
-      const documentModified=JSON.stringify(req.body.$collectionId.$id)
-      if(JSON.stringify(req.body.id).toInt()>5){
+   if(collectionModified=="65c9a8d2705210df628f"){
+      const documentModified=JSON.stringify(req.body.$id)
+      if(parseInt(req.body.id) >5 ){
 
         try {
           const client = new Client();
@@ -64,7 +64,7 @@ export default async ({ req, res, log, error }) => {
           // Get the document by its id
       
           const document = await databases.getDocument(collectionModified,documentModified);
-
+          log("documentis"+document.toString())
           // Update the 'name' field to 'Modified'
           document.name = 'Modified';
 
@@ -72,10 +72,10 @@ export default async ({ req, res, log, error }) => {
           await databases.updateDocument(collectionModified, documentModified, document);
 
           
-      } catch (error) {
+       } catch (error) {
           // Log any errors that occur during the update process
           error('Error updating document:', error);
-      }
+       }
        
 
 
