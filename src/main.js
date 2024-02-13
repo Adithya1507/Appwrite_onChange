@@ -52,7 +52,7 @@
   //    .setKey(process.env.APPWRITE_API_KEY);
 
   // You can log messages to the console
-  log('Hello, Logs123! ' + JSON.stringify(req));
+  log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
 
   // If something goes wrong, log an error
   error('Hello, Errors!');
@@ -65,10 +65,14 @@
   }
 
   // `res.json()` is a handy helper for sending JSON
-  return res.json({
-    motto: 'Build like a team of hundreds_',
-    learn: 'https://appwrite.io/docs',
-    connect: 'https://appwrite.io/discord',
-    getInspired: 'https://builtwith.appwrite.io',
-  });
+  // return res.json({
+  //   motto: 'Build like a team of hundreds_',
+  //   learn: 'https://appwrite.io/docs',
+  //   connect: 'https://appwrite.io/discord',
+  //   getInspired: 'https://builtwith.appwrite.io',
+  // });
 };
+
+
+
+//const a={"bodyRaw":"{\"name\":\"adi\",\"id\":\"5\",\"$id\":\"65c9ec18df6bab778571\",\"$createdAt\":\"2024-02-12T09:59:52.915+00:00\",\"$updatedAt\":\"2024-02-12T13:36:49.904+00:00\",\"$permissions\":[],\"$databaseId\":\"65c9a8c8d176e568ab13\",\"$collectionId\":\"65c9a8d2705210df628f\"}","body":{"name":"adi","id":"5","$id":"65c9ec18df6bab778571","$createdAt":"2024-02-12T09:59:52.915+00:00","$updatedAt":"2024-02-12T13:36:49.904+00:00","$permissions":[],"$databaseId":"65c9a8c8d176e568ab13","$collectionId":"65c9a8d2705210df628f"},"headers":{"host":"65ca1ef26d042:3000","user-agent":"Appwrite/1.4.13","content-type":"application/json","x-appwrite-trigger":"event","x-appwrite-event":"databases.65c9a8c8d176e568ab13.collections.65c9a8d2705210df628f.documents.65c9ec18df6bab778571.update","x-appwrite-user-id":"65aa018c5f5246e23ffb","connection":"keep-alive","content-length":"236"},"method":"POST","host":"65ca1ef26d042","scheme":"http","query":{},"queryString":"","port":3000,"url":"http://65ca1ef26d042:3000/","path":"/"}
