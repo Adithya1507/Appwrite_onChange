@@ -65,7 +65,7 @@
   }
 
   //`res.json()` is a handy helper for sending JSON
-  return res.send("triggered")
+  return context.res.send("triggered")
 };
 
 
