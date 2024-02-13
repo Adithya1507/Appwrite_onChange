@@ -57,9 +57,9 @@ export default async ({ req, res, log, error }) => {
   //log("collectionModified:"+ collectionModified)
    if(collectionModified === "65c9a8d2705210df628f")
    {
-     log("inside1")
+    
       if(parseInt(req.body.id) >5 ){
-
+         log("inside1")
         try {
           const client = new Client();
           client.setEndpoint('https://cloud.appwrite.io/v1').setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
