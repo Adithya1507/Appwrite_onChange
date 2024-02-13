@@ -68,13 +68,13 @@ export default async ({ req, res, log, error }) => {
           const databases = new Databases(client);
           
       
-          const document = await databases.getDocument(collectionModified,documentModified);
+          const document = await databases.getDocument(process.env.DATABASE_ID,collectionModified,documentModified);
           log("documentis"+document)
           // Update the 'name' field to 'Modified'
           document.name = 'Modified';
 
           // Save the updated document
-          await databases.updateDocument(collectionModified, documentModified, document);
+          await databases.updateDocument(process.env.DATABASE_ID,collectionModified, documentModified, document);
 
           
         } catch (error1) {
