@@ -71,13 +71,14 @@ export default async ({ req, res, log, error }) => {
       
           const document = await databases.getDocument(databaseId,collectionModified,documentModified)
           log("documentis"+JSON.stringify(document));
+          if(document.name != "modified"){
           // Update the 'name' field to 'Modified'
           //const data={name:"modified",id:"2"}
           //document.name = 'Modified';  
           const data={name:"modified"}
           // Save the updated document
           await databases.updateDocument(databaseId,collectionModified, documentModified, data);
-
+          }
           
         } catch (error1) {
           
