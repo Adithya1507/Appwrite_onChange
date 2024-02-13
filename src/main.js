@@ -53,6 +53,7 @@ export default async ({ req, res, log, error }) => {
   //log('Hello, Logs123! ' + JSON.stringify(req.body.$collectionId));
   const collectionModified= req.body.$collectionId
   const documentModified=req.body.$id
+  const databaseId=req.body.$databaseId
   //log("document modified"+ documentModified)
   //log("collectionModified:"+ collectionModified)
    if(collectionModified === "65c9a8d2705210df628f")
@@ -68,13 +69,13 @@ export default async ({ req, res, log, error }) => {
           const databases = new Databases(client);
           
       
-          const document = await databases.getDocument(process.env.DATABASE_ID,collectionModified,documentModified);
+          const document = await databases.getDocument(databaseId,collectionModified,documentModified);
           log("documentis"+document)
           // Update the 'name' field to 'Modified'
           document.name = 'Modified';
 
           // Save the updated document
-          await databases.updateDocument(process.env.DATABASE_ID,collectionModified, documentModified, document);
+          await databases.updateDocument(databaseId,collectionModified, documentModified, document);
 
           
         } catch (error1) {
