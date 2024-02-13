@@ -44,8 +44,9 @@
 // //functions.event.subscribe('databases.*.collections.*', onDocumentUpdate);
 // export default async ({ req, res, log, error }) => {
 
-import { Databases,Client,functions } from 'node-appwrite';
-
+import { Databases,Client } from 'node-appwrite';
+import pkg from 'node-appwrite'; // Import the entire package
+const functions = pkg.functions;
 export default async ({ req, res, log, error }) => {
  
 
