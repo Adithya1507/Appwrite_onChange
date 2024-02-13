@@ -59,7 +59,7 @@ export default async ({ req, res, log, error }) => {
    {
     
       if(parseInt(req.body.id) >5 ){
-         log("inside1")
+         //log("inside1")
         try {
           const client = new Client();
           client.setEndpoint('https://cloud.appwrite.io/v1').setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID);
@@ -68,7 +68,7 @@ export default async ({ req, res, log, error }) => {
           // Get the document by its id
       
           const document = await databases.getDocument(collectionModified,documentModified);
-          log("documentis"+document.toString())
+          log("documentis"+document)
           // Update the 'name' field to 'Modified'
           document.name = 'Modified';
 
