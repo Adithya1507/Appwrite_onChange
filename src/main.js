@@ -1,10 +1,11 @@
 import { Databases,Client,Functions } from 'node-appwrite';
 
 export default async ({ req, res, log, error }) => {
+  log("req"+req)
   const collectionModified= req.body.$collectionId
   const documentModified=req.body.$id
   const databaseId=req.body.$databaseId
-  log("req"+req)
+  
    if(collectionModified === "65c9a8d2705210df628f")
    {
     
