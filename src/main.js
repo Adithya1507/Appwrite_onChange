@@ -1,12 +1,10 @@
 import { Databases,Client,Functions } from 'node-appwrite';
-//import blake2 from 'blake2';
-// import pkg from 'blake2';
-// const { blake2bHex } = pkg;
+
 export default async ({ req, res, log, error }) => {
   const collectionModified= req.body.$collectionId
   const documentModified=req.body.$id
   const databaseId=req.body.$databaseId
-
+  log("req"+req)
    if(collectionModified === "65c9a8d2705210df628f")
    {
     
@@ -30,16 +28,16 @@ export default async ({ req, res, log, error }) => {
          // }
           
 //----------
-const functions = new Functions(client)
-const execution = await functions.createExecution(
-  '65c30374d86c4e6c4991',
-  JSON.stringify({ 'collectionId': collectionModified }),
-  false,
-  '/',
-  'GET',
-  { 'X-Custom-Header': '123' }
-)
-log("execution"+JSON.stringify(execution));
+          const functions = new Functions(client)
+          const execution = await functions.createExecution(
+            '65c30374d86c4e6c4991',
+            JSON.stringify({ 'collectionId': collectionModified }),
+            false,
+            '/',
+            'GET',
+            { 'X-Custom-Header': '123' }
+          )
+          log("execution"+JSON.stringify(execution));
 //-------
 
         } catch (error1) {
@@ -60,4 +58,3 @@ log("execution"+JSON.stringify(execution));
 };
 
 
-//let a={"bodyRaw":"{\"foo\":\"bar\"}","body":"{\"foo\":\"bar\"}","headers":{"host":"cloud.appwrite.io","x-appwrite-trigger":"http","x-appwrite-continent-eu":"false","content-type":"application/x-www-form-urlencoded","connection":"keep-alive","content-length":"13"},"method":"POST","host":"cloud.appwrite.io","scheme":"http","query":{},"queryString":"","port":80,"url":"http://cloud.appwrite.io/","path":"/"}
