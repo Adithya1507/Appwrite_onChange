@@ -32,7 +32,7 @@ export default async ({ req, res, log, error }) => {
           const functions = new Functions(client)
           const execution = await functions.createExecution(
             '65c30374d86c4e6c4991',
-            JSON.stringify({ 'collectionId': collectionModified }),
+            { 'collectionId': collectionModified },
             false,
             '/',
             'GET',
