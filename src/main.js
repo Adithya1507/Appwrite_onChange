@@ -1,7 +1,7 @@
 import { Databases,Client,Functions } from 'node-appwrite';
 
 export default async ({ req, res, log, error }) => {
-  log("req"+req)
+  log("req"+req.body)
   const collectionModified= req.body.$collectionId
   const documentModified=req.body.$id
   const databaseId=req.body.$databaseId
